@@ -1,0 +1,25 @@
+<project>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" source="1.7" target="1.7"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="./mapreduce.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value=“Test”/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="./mapreduce.jar" fork="true"/>
+    </target>
+
+</project>
